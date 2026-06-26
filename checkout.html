@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+
+<body>
+
+<h1>Checkout</h1>
+
+<h2>Price: ₦5,000</h2>
+
+<button class="btn" onclick="payWithPaystack()">Pay with Card / Transfer</button>
+
+<hr>
+
+<h3>Or Pay via Bank Transfer</h3>
+<p>
+Account Name: Olowoyo Rasheed A.<br>
+Account Number: 1234567890<br>
+Bank: Your Bank Name
+</p>
+
+<a class="btn outline"
+   href="https://wa.me/2348061311361?text=Hello%20I%20have%20made%20payment%20for%20%22When%20Allah%20Tests%20You%22%20(₦5000).%0A%0APlease%20confirm%20my%20payment.%0A%0AName:%20%0AEmail:%20%0AProof%20of%20Payment:%20(Screenshot%20attached)"
+   target="_blank">
+   Confirm Payment on WhatsApp
+</a>
+
+<script>
+function payWithPaystack(){
+    let handler = PaystackPop.setup({
+        key: 'YOUR_PUBLIC_KEY',
+        email: 'customer@email.com',
+        amount: 500000,
+        currency: "NGN",
+        ref: '' + Math.floor(Math.random() * 1000000000 + 1),
+
+        callback: function(response){
+            window.location.href = "success.html";
+        },
+
+        onClose: function(){
+            alert("Payment cancelled");
+        }
+    });
+
+    handler.openIframe();
+}
+</script>
+
+</body>
+</html>

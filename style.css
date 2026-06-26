@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0b1a12;
+    color: white;
+    text-align: center;
+}
+
+.hero {
+    padding: 80px 20px;
+    background: linear-gradient(#000000cc,#000000cc),
+    url('https://images.unsplash.com/photo-1542816417-0983c9c9ad53');
+    background-size: cover;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: gold;
+    color: black;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.outline {
+    background: transparent;
+    border: 2px solid gold;
+    color: gold;
+}
+
+.section {
+    padding: 40px;
+}
