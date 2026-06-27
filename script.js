@@ -1,106 +1,184 @@
-/* ==========================
+/* ==========================================
+   AR-RUSHDY PUBLICATIONS
+   SCRIPT.JS
+========================================== */
+
+/* ===========================
+   MOBILE MENU
+=========================== */
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+const overlay = document.getElementById("overlay");
+
+if (hamburger) {
+
+    hamburger.addEventListener("click", () => {
+
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        overlay.classList.toggle("active");
+
+        document.body.classList.toggle("menu-open");
+
+    });
+
+}
+
+if (overlay) {
+
+    overlay.addEventListener("click", () => {
+
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        overlay.classList.remove("active");
+
+        document.body.classList.remove("menu-open");
+
+    });
+
+}
+
+/* Close menu after clicking a link */
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        overlay.classList.remove("active");
+
+        document.body.classList.remove("menu-open");
+
+    });
+
+});
+
+/* ===========================
    SCROLL ANIMATION
-========================== */
+=========================== */
 
 const hiddenElements = document.querySelectorAll(".hidden");
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
             entry.target.classList.add("show");
+
         }
+
     });
+
+},{
+    threshold:0.15
 });
 
-hiddenElements.forEach((el) => observer.observe(el));
+hiddenElements.forEach(el=>observer.observe(el));
 
-/* ==========================
-   STICKY NAVBAR SHADOW
-========================== */
+/* ===========================
+   STICKY NAVBAR
+=========================== */
 
-window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
+const navbar = document.querySelector(".navbar");
 
-    if (navbar) {
-        if (window.scrollY > 30) {
-            navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.12)";
-        } else {
-            navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,.08)";
-        }
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>40){
+
+        navbar.style.boxShadow =
+        "0 15px 35px rgba(0,0,0,.12)";
+
+        navbar.style.background =
+        "rgba(255,255,255,.95)";
+
+    }else{
+
+        navbar.style.boxShadow =
+        "0 8px 25px rgba(0,0,0,.08)";
+
+        navbar.style.background =
+        "rgba(255,255,255,.92)";
+
     }
-});
-
-/* ==========================
-   BUTTON HOVER
-========================== */
-
-const buttons = document.querySelectorAll(".primary-btn, .secondary-btn");
-
-buttons.forEach(button => {
-
-    button.addEventListener("mouseenter", () => {
-        button.style.transform = "translateY(-3px)";
-    });
-
-    button.addEventListener("mouseleave", () => {
-        button.style.transform = "translateY(0)";
-    });
 
 });
 
-/* ==========================
-   PAYSTACK PAYMENT
-========================== */
+/* ===========================
+   PAYSTACK
+=========================== */
 
-function payWithPaystack() {
+function payWithPaystack(){
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
+    const name =
+    document.getElementById("name").value.trim();
 
-    if (!name || !email || !phone) {
-        alert("Please fill in all fields.");
+    const email =
+    document.getElementById("email").value.trim();
+
+    const phone =
+    document.getElementById("phone").value.trim();
+
+    if(!name || !email || !phone){
+
+        alert("Please complete all fields.");
+
         return;
+
     }
 
     let handler = PaystackPop.setup({
 
-        key: "pk_test_6668c562f7c0a67945b58a9e69afa6408156cb3d",
+        key:"pk_test_6668c562f7c0a67945b58a9e69afa6408156cb3d",
 
-        email: email,
+        email:email,
 
-        amount: 500000,
+        amount:500000,
 
-        currency: "NGN",
+        currency:"NGN",
 
-        ref: "ARRUSHDY_" + Date.now(),
+        ref:"ARRUSHDY_"+Date.now(),
 
-        metadata: {
-            custom_fields: [
+        metadata:{
+
+            custom_fields:[
+
                 {
-                    display_name: "Customer Name",
-                    variable_name: "customer_name",
-                    value: name
+
+                    display_name:"Customer Name",
+
+                    variable_name:"customer_name",
+
+                    value:name
+
                 },
+
                 {
-                    display_name: "Phone Number",
-                    variable_name: "phone_number",
-                    value: phone
+
+                    display_name:"Phone Number",
+
+                    variable_name:"phone_number",
+
+                    value:phone
+
                 }
+
             ]
+
         },
 
-        callback: function(response) {
+        callback:function(response){
 
-            alert("Payment Successful!");
+            window.location.href =
+            "success.html?reference=" +
+            encodeURIComponent(response.reference);
 
-           const reference = response.reference;
-
-window.location.href =
-    "success.html?reference=" + encodeURIComponent(reference);
         },
 
-        onClose: function() {
+        onClose:function(){
 
             alert("Payment Cancelled.");
 
