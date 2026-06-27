@@ -70,9 +70,11 @@ function payWithPaystack() {
                     value: phone
                 }
             ]
-        },
+      callback: function(response) {
 
-        callback: function(response) {
+    window.location.href = "success.html?reference=" + response.reference;
+
+},
 
             alert("Payment successful!");
 
