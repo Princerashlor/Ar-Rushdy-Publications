@@ -750,9 +750,5 @@ section h2{
 }
 
 body.menu-open{
-    overflow:hidden;
-<<<<<<< HEAD
+    overflow: hidden;
 }
-=======
-}
->>>>>>> fdccb7f (Added responsive hamburger menu)
