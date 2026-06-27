@@ -7,52 +7,40 @@
    MOBILE MENU
 =========================== */
 
+/* ===========================
+   MOBILE MENU (FIXED)
+=========================== */
+
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 const overlay = document.getElementById("overlay");
 
-if (hamburger) {
-
-    hamburger.addEventListener("click", () => {
-
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-        overlay.classList.toggle("active");
-
-        document.body.classList.toggle("menu-open");
-
-    });
-
+function openMenu() {
+    hamburger.classList.add("active");
+    navMenu.classList.add("active");
+    overlay.classList.add("active");
+    document.body.classList.add("menu-open");
 }
 
-if (overlay) {
-
-    overlay.addEventListener("click", () => {
-
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
-        overlay.classList.remove("active");
-
-        document.body.classList.remove("menu-open");
-
-    });
-
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.classList.remove("menu-open");
 }
 
-/* Close menu after clicking a link */
+hamburger.addEventListener("click", () => {
+    if (navMenu.classList.contains("active")) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
+});
+
+overlay.addEventListener("click", closeMenu);
 
 document.querySelectorAll("#navMenu a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
-        overlay.classList.remove("active");
-
-        document.body.classList.remove("menu-open");
-
-    });
-
+    link.addEventListener("click", closeMenu);
 });
 
 /* ===========================
