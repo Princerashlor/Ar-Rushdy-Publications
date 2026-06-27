@@ -1,608 +1,94 @@
-/*=========================================
-  GOOGLE FONT
-=========================================*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/*=========================================
-  RESET
-=========================================*/
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#F8F5EE;
-    color:#333;
-    line-height:1.8;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-a{
-    text-decoration:none;
-}
-
-.container{
-    width:min(90%,1200px);
-    margin:auto;
-}
-
-/*=========================================
-  NAVIGATION
-=========================================*/
-
-.navbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-    background:#ffffff;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:18px 8%;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.logo{
-    font-size:2rem;
-    font-weight:700;
-    color:#1F5E4A;
-}
-
-.navbar nav{
-    display:flex;
-    align-items:center;
-    gap:25px;
-}
-
-.navbar nav a{
-    color:#333;
-    font-weight:600;
-    transition:.3s;
-}
-
-.navbar nav a:hover{
-    color:#1F5E4A;
-}
-
-/*=========================================
-  BUTTONS
-=========================================*/
-
-.primary-btn,
-.buy-btn{
-
-    display:inline-block;
-
-    padding:14px 30px;
-
-    border-radius:50px;
-
-    background:#1F5E4A;
-
-    color:#fff;
-
-    font-weight:600;
-
-    transition:.35s;
-}
-
-.primary-btn:hover,
-.buy-btn:hover{
-
-    background:#164739;
-
-    transform:translateY(-3px);
-
-    box-shadow:0 10px 25px rgba(31,94,74,.30);
-}
-
-.secondary-btn{
-
-    display:inline-block;
-
-    padding:14px 30px;
-
-    border:2px solid #1F5E4A;
-
-    color:#1F5E4A;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-    transition:.35s;
-}
-
-.secondary-btn:hover{
-
-    background:#1F5E4A;
-
-    color:#fff;
-
-}
-
-/*=========================================
-  HERO SECTION
-=========================================*/
-
-.hero{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:60px;
-
-    flex-wrap:wrap;
-
-    padding:100px 8%;
-}
-
-.hero-image img{
-
-    width:350px;
-
-    border-radius:18px;
-
-    box-shadow:0 20px 40px rgba(0,0,0,.18);
-
-    animation:floatBook 4s ease-in-out infinite;
-}
-
-.hero-text{
-
-    max-width:550px;
-
-}
-
-.hero-text h1{
-
-    font-size:3rem;
-
-    line-height:1.2;
-
-    color:#1F5E4A;
-
-    margin-bottom:20px;
-}
-
-.hero-text p{
-
-    font-size:1.1rem;
-
-    color:#555;
-
-    margin-bottom:25px;
-}
-
-.hero-text h2{
-
-    font-size:2.2rem;
-
-    color:#C9A227;
-
-    margin-bottom:30px;
-}
-
-.hero-buttons{
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-}
-
-/*=========================================
-  BOOK FLOAT ANIMATION
-=========================================*/
-
-@keyframes floatBook{
-
-    0%{
-        transform:translateY(0);
+/* ==========================
+   SCROLL ANIMATION
+========================== */
+
+const hiddenElements = document.querySelectorAll(".hidden");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+hiddenElements.forEach((el) => observer.observe(el));
+
+/* ==========================
+   STICKY NAVBAR
+========================== */
+
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+
+    if (navbar) {
+        if (window.scrollY > 30) {
+            navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.12)";
+        } else {
+            navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,.08)";
+        }
+    }
+});
+
+/* ==========================
+   PAYSTACK PAYMENT
+========================== */
+
+function payWithPaystack() {
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    if (!name || !email || !phone) {
+        alert("Please fill in all your details.");
+        return;
     }
 
-    50%{
-        transform:translateY(-12px);
-    }
+    let handler = PaystackPop.setup({
 
-    100%{
-        transform:translateY(0);
-    }
+        key: "pk_test_6668c562f7c0a67945b58a9e69afa6408156cb3d",
 
-}
+        email: email,
 
-/*=========================================
-  GENERAL SECTIONS
-=========================================*/
+        amount: 500000,
 
-section{
-    padding:90px 8%;
-}
+        currency: "NGN",
 
-section h2{
-    text-align:center;
-    font-size:2.5rem;
-    color:#1F5E4A;
-    margin-bottom:50px;
-}
+        ref: "ARRUSHDY_" + Date.now(),
 
-/*=========================================
-  FEATURES
-=========================================*/
+        metadata: {
+            custom_fields: [
+                {
+                    display_name: "Customer Name",
+                    variable_name: "customer_name",
+                    value: name
+                },
+                {
+                    display_name: "Phone Number",
+                    variable_name: "phone_number",
+                    value: phone
+                }
+            ]
+        },
 
-.features,
-.discover{
-    background:#ffffff;
-}
+        callback: function(response) {
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
+            alert("Payment successful!");
 
-.card{
-    background:#F8F5EE;
-    padding:35px;
-    border-radius:20px;
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-    transition:.35s ease;
-}
+            window.location.href =
+                "success.html?reference=" + response.reference;
 
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 18px 35px rgba(0,0,0,.15);
-}
+        },
 
-.card h3{
-    color:#1F5E4A;
-    margin-bottom:18px;
-    font-size:1.35rem;
-}
+        onClose: function() {
 
-.card p{
-    color:#555;
-    line-height:1.8;
-}
+            alert("Payment cancelled.");
 
-/*=========================================
-  QUR'AN VERSE
-=========================================*/
+        }
 
-.verse{
-    background:#1F5E4A;
-    color:#fff;
-    text-align:center;
-}
+    });
 
-.verse h2{
-    color:#F4C542;
-}
-
-.arabic{
-    font-size:2rem;
-    line-height:2;
-    margin:35px auto;
-    max-width:900px;
-}
-
-.translation{
-    max-width:850px;
-    margin:auto;
-    font-size:1.2rem;
-    font-style:italic;
-    line-height:1.8;
-}
-
-.reference{
-    margin-top:25px;
-    color:#F4C542;
-    font-weight:700;
-}
-
-/*=========================================
-  TESTIMONIALS
-=========================================*/
-
-.testimonials{
-    background:#ffffff;
-}
-
-.testimonials .cards{
-    margin-top:20px;
-}
-
-.testimonials .card{
-    text-align:center;
-}
-
-.testimonials h4{
-    color:#1F5E4A;
-    margin-top:20px;
-    font-weight:700;
-}
-
-/*=========================================
-  AUTHOR
-=========================================*/
-
-.author{
-    background:#ffffff;
-}
-
-.author-content{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:60px;
-    flex-wrap:wrap;
-}
-
-.author-image img{
-    width:380px;
-    max-width:100%;
-    border-radius:20px;
-    border:5px solid #C9A227;
-    box-shadow:0 20px 40px rgba(0,0,0,.15);
-}
-
-.author-text{
-    max-width:600px;
-}
-
-.author-text h2{
-    text-align:left;
-    color:#1F5E4A;
-    margin-bottom:20px;
-}
-
-.author-text h3{
-    color:#C9A227;
-    margin-bottom:20px;
-}
-
-.author-text p{
-    color:#555;
-    line-height:1.9;
-    margin-bottom:20px;
-}
-
-/*=========================================
-  CONTACT SECTION
-=========================================*/
-
-.contact{
-    background:#F8F5EE;
-}
-
-.contact h2{
-    text-align:center;
-    color:#1F5E4A;
-    margin-bottom:50px;
-}
-
-.contact .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-.contact .card{
-    background:#ffffff;
-    text-align:center;
-}
-
-.email-address{
-    display:block;
-    margin:15px 0 25px;
-    font-size:18px;
-    color:#555;
-    word-break:break-word;
-    line-height:1.7;
-}
-
-/*=========================================
-  FOOTER
-=========================================*/
-
-.footer{
-    background:#1F5E4A;
-    color:white;
-    text-align:center;
-    padding:60px 20px;
-}
-
-.footer h2{
-    color:#F4C542;
-    margin-bottom:20px;
-}
-
-.footer p{
-    margin:12px 0;
-    line-height:1.8;
-}
-
-.footer hr{
-    width:80%;
-    margin:30px auto;
-    border:1px solid rgba(255,255,255,.25);
-}
-
-/*=========================================
-  FLOATING WHATSAPP BUTTON
-=========================================*/
-
-.whatsapp{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    width:60px;
-    height:60px;
-    background:#25D366;
-    color:white;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:28px;
-    text-decoration:none;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-    transition:.3s;
-    z-index:999;
-}
-
-.whatsapp:hover{
-    transform:scale(1.1);
-}
-
-/*=========================================
-  SCROLL ANIMATION
-=========================================*/
-
-.hidden{
-    opacity:0;
-    transform:translateY(40px);
-    transition:all .8s ease;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/*=========================================
-  TEXT SELECTION
-=========================================*/
-
-::selection{
-    background:#1F5E4A;
-    color:white;
-}
-
-/*=========================================
-  SCROLLBAR
-=========================================*/
-
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:#f1f1f1;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#1F5E4A;
-    border-radius:20px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background:#164739;
-}
-
-/*=========================================
-  MOBILE RESPONSIVE
-=========================================*/
-
-@media (max-width:768px){
-
-    .navbar{
-        flex-direction:column;
-        gap:20px;
-        padding:20px;
-    }
-
-    .logo{
-        font-size:1.8rem;
-        text-align:center;
-    }
-
-    .navbar nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
-    }
-
-    .hero{
-        flex-direction:column;
-        text-align:center;
-        padding:70px 20px;
-    }
-
-    .hero-image img{
-        width:250px;
-    }
-
-    .hero-text h1{
-        font-size:2.2rem;
-    }
-
-    .hero-text h2{
-        font-size:2rem;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    section{
-        padding:70px 20px;
-    }
-
-    section h2{
-        font-size:2rem;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .author-content{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .author-text h2{
-        text-align:center;
-    }
-
-    .author-image img{
-        width:260px;
-    }
-
-    .arabic{
-        font-size:1.5rem;
-        line-height:1.8;
-    }
-
-    .translation{
-        font-size:1rem;
-    }
-
-    .whatsapp{
-        width:55px;
-        height:55px;
-        font-size:24px;
-    }
+    handler.openIframe();
 
 }
