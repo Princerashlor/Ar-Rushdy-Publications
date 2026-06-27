@@ -57,7 +57,7 @@ img{
 
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 
-    z-index:1000;
+    z-index:2000;
 
 }
 
@@ -103,7 +103,7 @@ img{
     width:35px;
     cursor:pointer;
 
-    z-index:2001;
+    z-index:2000;
 
 }
 
@@ -123,32 +123,21 @@ img{
 
 }
 
-.overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.45);
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.35s;
-
-    z-index:1500;
-
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1999; /* 🔥 ADD THIS */
 }
 
-.overlay.active{
-
-    opacity:1;
-
-    visibility:visible;
-
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
 }
-
 /* ==========================================
    BUTTONS
 ========================================== */
