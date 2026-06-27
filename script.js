@@ -94,9 +94,10 @@ function payWithPaystack() {
 
             alert("Payment Successful!");
 
-            window.location.href =
-                "success.html?reference=" + response.reference;
+           const reference = response.reference;
 
+window.location.href =
+    "success.html?reference=" + encodeURIComponent(reference);
         },
 
         onClose: function() {

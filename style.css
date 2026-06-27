@@ -92,3 +92,112 @@ function payWithPaystack() {
     handler.openIframe();
 
 }
+/* BOOK GRID */
+
+.cards .card img{
+
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:20px;
+
+}
+
+.cards .card{
+
+    text-align:center;
+
+}
+/* ==========================
+BOOKS PAGE
+========================== */
+
+.books-hero{
+    text-align:center;
+    padding:80px 20px;
+    background:#fff;
+}
+
+.books-hero h1{
+    font-size:3rem;
+    color:#1F5E4A;
+}
+
+.books-hero p{
+    max-width:700px;
+    margin:20px auto;
+    color:#555;
+}
+
+.search-section{
+    text-align:center;
+    margin:40px 0;
+}
+
+.search-box{
+    width:90%;
+    max-width:500px;
+    padding:15px 20px;
+    border:2px solid #ddd;
+    border-radius:50px;
+    font-size:16px;
+}
+
+.categories{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:50px;
+}
+
+.category{
+    padding:12px 25px;
+    border:none;
+    border-radius:50px;
+    background:#eee;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.category.active{
+    background:#1F5E4A;
+    color:#fff;
+}
+
+.badge,
+.coming{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:30px;
+    color:#fff;
+    margin-bottom:15px;
+    font-size:13px;
+}
+
+.badge{
+    background:#C9A227;
+}
+
+.coming{
+    background:#777;
+}
+
+.rating{
+    color:#F4B400;
+    font-weight:bold;
+}
+
+.stock{
+    color:green;
+    font-weight:600;
+    margin:15px 0;
+}
+
+.book-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
