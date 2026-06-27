@@ -6,102 +6,128 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>When Allah Tests You | Ar-Rushdy Publications</title>
+<title>Ar-Rushdy Publications | Authentic Islamic Books</title>
 
 <meta name="description"
-content="Official website of Ar-Rushdy Publications. Authentic Islamic books based on the Qur'an and Sunnah.">
-
-<meta name="keywords"
-content="Islamic books, Ar-Rushdy Publications, Qur'an, Sunnah, When Allah Tests You">
-
-<meta name="author"
-content="Olowoyo Rasheed A. (Ar-Rushdy)">
-
-<link rel="stylesheet" href="style.css">
+content="Authentic Islamic books based on the Qur'an and Sunnah.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+<!-- Overlay -->
+
+<div class="overlay" id="overlay"></div>
+
+<!-- ===========================
+NAVBAR
+=========================== -->
+
 <header class="navbar">
 
-<div class="logo">
-Ar-Rushdy Publications
-</div>
+    <div class="logo">
+        Ar-Rushdy Publications
+    </div>
 
-<nav>
+    <div class="hamburger" id="hamburger">
 
-<a href="index.html">Home</a>
+        <span></span>
+        <span></span>
+        <span></span>
 
-<a href="books.html">Books</a>
+    </div>
 
-<a href="about.html">Author</a>
+    <nav id="navMenu">
 
-<a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
 
-<a href="checkout.html"
-class="buy-btn">
-Buy Now
-</a>
+        <a href="books.html">Books</a>
 
-</nav>
+        <a href="about.html">Author</a>
+
+        <a href="#contact">Contact</a>
+
+        <a href="checkout.html" class="buy-btn">
+
+            Buy Now
+
+        </a>
+
+    </nav>
 
 </header>
 
-<main>
+<!-- ===========================
+HERO
+=========================== -->
 
-<section class="hero" id="home">
+<section class="hero">
 
-<div class="hero-image">
+    <div class="hero-content">
 
-<img src="Images/book.jpeg"
-alt="When Allah Tests You Book Cover">
+        <div class="hero-text">
 
-</div>
+            <span class="badge">
 
-<div class="hero-text">
+                ✨ New Islamic Release
 
-<h1>
-When Allah Tests You,<br>
-He Has Not Abandoned You
-</h1>
+            </span>
 
-<p>
+            <h1>
 
-Discover hope, patience and trust in Allah through
-the Qur'an and authentic Sunnah.
+                When Allah Tests You,<br>
 
-Every hardship contains wisdom,
-mercy and reward.
+                He Has Not Abandoned You
 
-</p>
+            </h1>
 
-<h2>₦5,000</h2>
+            <p>
 
-<div class="hero-buttons">
+                A powerful reminder from the Noble Qur'an and
+                authentic Sunnah that every hardship carries
+                wisdom, mercy and immense reward.
 
-<a href="checkout.html"
-class="primary-btn">
-Buy Now
-</a>
+            </p>
 
-<a href="#features"
-class="secondary-btn">
-Learn More
-</a>
+            <h2>
 
-</div>
+                ₦5,000
 
-</div>
+            </h2>
+
+            <div class="hero-buttons">
+
+                <a href="checkout.html" class="primary-btn">
+
+                    Buy Now
+
+                </a>
+
+                <a href="#features" class="secondary-btn">
+
+                    Read Preview
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="Images/book.jpeg"
+                 alt="When Allah Tests You">
+
+        </div>
+
+    </div>
 
 </section>
 <!-- ===========================
@@ -116,36 +142,40 @@ WHY READ THIS BOOK
 
         <div class="card hidden">
 
-            <h3>📖 Authentic Guidance</h3>
+            <div class="icon">📖</div>
+
+            <h3>Authentic Guidance</h3>
 
             <p>
-                Based on the Noble Qur'an and authentic Sunnah,
-                every chapter provides reliable Islamic guidance
-                to strengthen your faith.
+                Every chapter is based upon the Noble Qur'an
+                and authentic Sunnah, providing reliable
+                Islamic guidance for every Muslim.
             </p>
 
         </div>
 
         <div class="card hidden">
 
-            <h3>🤲 Strengthen Your Sabr</h3>
+            <div class="icon">🤲</div>
+
+            <h3>Strengthen Your Sabr</h3>
 
             <p>
-                Learn how patience transforms life's challenges
-                into opportunities for spiritual growth and
-                closeness to Allah.
+                Discover how patience during hardship
+                increases faith and earns Allah's reward.
             </p>
 
         </div>
 
         <div class="card hidden">
 
-            <h3>❤️ Renew Your Hope</h3>
+            <div class="icon">❤️</div>
+
+            <h3>Renew Your Hope</h3>
 
             <p>
-                Be reminded that Allah never abandons His believing
-                servants and that every hardship comes with wisdom
-                and mercy.
+                Be reminded that Allah never abandons
+                His believing servants.
             </p>
 
         </div>
@@ -160,30 +190,34 @@ QUR'AN VERSE
 
 <section class="verse">
 
-    <h2>Allah's Promise During Trials</h2>
+    <div class="container">
 
-    <p class="arabic">
+        <h2>Allah's Promise During Trials</h2>
 
-        وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ
-        وَالْجُوعِ وَنَقْصٍ مِّنَ الْأَمْوَالِ
-        وَالْأَنفُسِ وَالثَّمَرَاتِ ۗ
-        وَبَشِّرِ الصَّابِرِينَ
+        <p class="arabic">
 
-    </p>
+            وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ
+            وَالْجُوعِ وَنَقْصٍ مِّنَ الْأَمْوَالِ
+            وَالْأَنفُسِ وَالثَّمَرَاتِ ۗ
+            وَبَشِّرِ الصَّابِرِينَ
 
-    <p class="translation">
+        </p>
 
-        "And We will surely test you with something of fear,
-        hunger, loss of wealth, lives and fruits,
-        but give glad tidings to the patient."
+        <p class="translation">
 
-    </p>
+            “And We will surely test you with something of fear,
+            hunger, loss of wealth, lives and fruits,
+            but give glad tidings to the patient.”
 
-    <p class="reference">
+        </p>
 
-        — Surah Al-Baqarah (2:155)
+        <p class="reference">
 
-    </p>
+            Surah Al-Baqarah (2:155)
+
+        </p>
+
+    </div>
 
 </section>
 
@@ -199,35 +233,45 @@ WHAT YOU'LL DISCOVER
 
         <div class="card hidden">
 
-            <h3>✨ Why Allah Tests His Servants</h3>
+            <div class="icon">✨</div>
+
+            <h3>Why Allah Tests His Servants</h3>
 
             <p>
-                Understand the wisdom behind every trial
-                and how hardships elevate a believer's rank
-                before Allah.
+
+                Understand the wisdom behind every hardship
+                and how trials elevate the believer.
+
             </p>
 
         </div>
 
         <div class="card hidden">
 
-            <h3>🕌 Lessons From the Prophets</h3>
+            <div class="icon">🕌</div>
+
+            <h3>Lessons From the Prophets</h3>
 
             <p>
-                Learn from the patience, perseverance and trust
-                shown by the Prophets during life's greatest
-                difficulties.
+
+                Learn from the patience of Prophet Ayyub,
+                Ya'qub, Yusuf and our beloved Prophet ﷺ.
+
             </p>
 
         </div>
 
         <div class="card hidden">
 
-            <h3>🌙 Practical Daily Advice</h3>
+            <div class="icon">🌙</div>
+
+            <h3>Practical Daily Advice</h3>
 
             <p>
-                Apply authentic Qur'anic and Prophetic guidance
-                to everyday situations with confidence and hope.
+
+                Practical reminders to help you remain
+                patient and hopeful every single day.
+
             </p>
 
         </div>
@@ -235,6 +279,7 @@ WHAT YOU'LL DISCOVER
     </div>
 
 </section>
+
 <!-- ===========================
 TESTIMONIALS
 =========================== -->
@@ -250,9 +295,12 @@ TESTIMONIALS
             <h3>⭐⭐⭐⭐⭐</h3>
 
             <p>
-                "This book strengthened my trust in Allah
-                and reminded me that every hardship carries
-                wisdom and reward."
+
+                “This book completely changed the way
+                I look at life's tests.
+                It reminded me that Allah's mercy
+                is always present.”
+
             </p>
 
             <h4>— Early Reader</h4>
@@ -264,9 +312,10 @@ TESTIMONIALS
             <h3>⭐⭐⭐⭐⭐</h3>
 
             <p>
-                "Simple, authentic and inspiring.
-                Every Muslim should have a copy
-                in their personal library."
+
+                “Simple, authentic and beautifully written.
+                Every Muslim should own a copy.”
+
             </p>
 
             <h4>— Reader</h4>
@@ -278,9 +327,10 @@ TESTIMONIALS
             <h3>⭐⭐⭐⭐⭐</h3>
 
             <p>
-                "A beautiful reminder that Allah never
-                abandons His believing servants.
-                Highly recommended."
+
+                “One of the most comforting Islamic books
+                I have ever read.”
+
             </p>
 
             <h4>— AbdulRahman</h4>
@@ -290,7 +340,6 @@ TESTIMONIALS
     </div>
 
 </section>
-
 <!-- ===========================
 AUTHOR
 =========================== -->
@@ -299,43 +348,37 @@ AUTHOR
 
     <div class="author-content">
 
-        <div class="author-image">
+        <div class="author-image hidden">
 
             <img src="Images/Author.jpg"
                  alt="Olowoyo Rasheed A. (Ar-Rushdy)">
 
         </div>
 
-        <div class="author-text">
+        <div class="author-text hidden">
 
-            <h2>Meet the Author</h2>
+            <span class="badge">
+                About the Author
+            </span>
 
-            <h3>Olowoyo Rasheed A. (Ar-Rushdy)</h3>
+            <h2>Olowoyo Rasheed A. (Ar-Rushdy)</h2>
 
             <p>
 
                 Olowoyo Rasheed A., popularly known as
-                <strong>Ar-Rushdy</strong>, is an Islamic
-                author, educator and da'wah enthusiast
-                dedicated to spreading authentic Islamic
-                knowledge through beneficial publications.
+                <strong>Ar-Rushdy</strong>, is an Islamic author,
+                educator and da'wah enthusiast dedicated to
+                spreading authentic Islamic knowledge through
+                beneficial books.
 
             </p>
 
             <p>
 
-                His writings encourage Muslims to strengthen
-                their faith through patience, reliance upon
-                Allah, sincere worship and adherence to the
-                Noble Qur'an and authentic Sunnah.
-
-            </p>
-
-            <p>
-
-                Ar-Rushdy Publications aims to produce books
-                that educate, inspire and benefit Muslims
-                around the world, In shaa Allah.
+                His mission is to help Muslims strengthen
+                their faith through the Noble Qur'an,
+                authentic Sunnah and the understanding
+                of the righteous predecessors.
 
             </p>
 
@@ -356,35 +399,38 @@ AUTHOR
 CALL TO ACTION
 =========================== -->
 
-<section class="verse">
+<section class="cta">
 
-    <h2>Ready to Strengthen Your Faith?</h2>
+    <div class="container">
 
-    <p class="translation">
+        <h2>Ready to Strengthen Your Faith?</h2>
 
-        Order your copy today and discover timeless
-        reminders that will help you face every test
-        with patience, hope and complete trust in Allah.
+        <p>
 
-    </p>
+            Order your copy today and discover timeless
+            reminders that bring hope, patience and trust
+            in Allah during every trial.
 
-    <br>
+        </p>
 
-    <a href="checkout.html"
-       class="primary-btn">
+        <a href="checkout.html"
+           class="primary-btn">
 
-        Buy Now — ₦5,000
+            Buy Now — ₦5,000
 
-    </a>
+        </a>
+
+    </div>
 
 </section>
+
 <!-- ===========================
 CONTACT
 =========================== -->
 
 <section class="contact" id="contact">
 
-    <h2>Get in Touch</h2>
+    <h2>Contact Us</h2>
 
     <div class="cards">
 
@@ -393,14 +439,16 @@ CONTACT
             <h3>📱 WhatsApp</h3>
 
             <p>
+
                 +234 806 131 1361
+
             </p>
 
             <a href="https://wa.me/2348061311361"
                target="_blank"
                class="primary-btn">
 
-                Chat on WhatsApp
+                Chat Now
 
             </a>
 
@@ -410,7 +458,7 @@ CONTACT
 
             <h3>📧 Email</h3>
 
-            <p class="email-address">
+            <p>
 
                 olowoyorasheed1999@gmail.com
 
@@ -429,18 +477,14 @@ CONTACT
 
             <h3>📚 Book Price</h3>
 
-            <p>
-
-                <strong>When Allah Tests You</strong>
-
-            </p>
-
-            <h3 style="color:#C9A227;">₦5,000</h3>
+            <h2 style="color:#C9A227;">
+                ₦5,000
+            </h2>
 
             <a href="checkout.html"
                class="primary-btn">
 
-                Order Your Copy
+                Order Now
 
             </a>
 
@@ -450,38 +494,33 @@ CONTACT
 
 </section>
 
-</main>
-
 <!-- ===========================
 FOOTER
 =========================== -->
 
 <footer class="footer">
 
-    <h2>Ar-Rushdy Publications</h2>
+    <div class="container">
 
-    <p>
+        <h2>Ar-Rushdy Publications</h2>
 
-        Publishing authentic Islamic books based on
-        the Noble Qur'an and authentic Sunnah.
+        <p>
 
-    </p>
+            Publishing authentic Islamic books based upon
+            the Noble Qur'an and authentic Sunnah.
 
-    <p>
+        </p>
 
-        Inspiring faith, patience and hope through
-        beneficial knowledge.
+        <hr>
 
-    </p>
+        <p>
 
-    <hr>
+            © 2025 Ar-Rushdy Publications.
+            All Rights Reserved.
 
-    <p>
+        </p>
 
-        © 2025 Ar-Rushdy Publications.
-        All Rights Reserved.
-
-    </p>
+    </div>
 
 </footer>
 
@@ -490,11 +529,11 @@ FLOATING WHATSAPP
 =========================== -->
 
 <a href="https://wa.me/2348061311361"
-   target="_blank"
    class="whatsapp"
-   aria-label="WhatsApp">
+   target="_blank"
+   aria-label="Chat on WhatsApp">
 
-💬
+    💬
 
 </a>
 
