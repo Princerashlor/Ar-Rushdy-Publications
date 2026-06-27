@@ -1,147 +1,542 @@
-/* ==========================
-   SCROLL ANIMATION
-========================== */
+/* ==========================================
+   AR-RUSHDY PUBLICATIONS
+   STYLE.CSS
+========================================== */
 
-const hiddenElements = document.querySelectorAll(".hidden");
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-});
+html{
+    scroll-behavior:smooth;
+}
 
-hiddenElements.forEach((el) => observer.observe(el));
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8f8f8;
+    color:#333;
+    line-height:1.7;
+}
 
-/* ==========================
-   STICKY NAVBAR
-========================== */
+/* ===========================
+   CONTAINER
+=========================== */
 
-window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
 
-    if (navbar) {
-        if (window.scrollY > 30) {
-            navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.12)";
-        } else {
-            navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,.08)";
-        }
-    }
-});
+/* ===========================
+   NAVBAR
+=========================== */
 
-/* ==========================
-   PAYSTACK PAYMENT
-========================== */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#ffffff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    z-index:1000;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
 
-function payWithPaystack() {
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#1F5E4A;
+}
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
+.navbar nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
 
-    if (!name || !email || !phone) {
-        alert("Please fill in all your details.");
-        return;
-    }
+.navbar nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:.3s;
+}
 
-    let handler = PaystackPop.setup({
+.navbar nav a:hover{
+    color:#1F5E4A;
+}
 
-        key: "pk_test_6668c562f7c0a67945b58a9e69afa6408156cb3d",
+/* ===========================
+   BUTTONS
+=========================== */
 
-        email: email,
+.primary-btn,
+.secondary-btn,
+.buy-btn{
 
-        amount: 500000,
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:600;
+}
 
-        currency: "NGN",
+.primary-btn{
+    background:#1F5E4A;
+    color:#fff;
+}
 
-        ref: "ARRUSHDY_" + Date.now(),
+.primary-btn:hover{
+    background:#174838;
+    transform:translateY(-3px);
+}
 
-        metadata: {
-            custom_fields: [
-                {
-                    display_name: "Customer Name",
-                    variable_name: "customer_name",
-                    value: name
-                },
-                {
-                    display_name: "Phone Number",
-                    variable_name: "phone_number",
-                    value: phone
-                }
-            ]
-        },
+.secondary-btn{
+    border:2px solid #1F5E4A;
+    color:#1F5E4A;
+}
 
-        callback: function(response) {
+.secondary-btn:hover{
+    background:#1F5E4A;
+    color:#fff;
+}
 
-            alert("Payment successful!");
+.buy-btn{
+    background:#C9A227;
+    color:#fff;
+}
 
-            window.location.href =
-                "success.html?reference=" + response.reference;
+.buy-btn:hover{
+    background:#b48f1f;
+}
 
-        },
+/* ===========================
+   HERO
+=========================== */
 
-        onClose: function() {
+.hero{
 
-            alert("Payment cancelled.");
-
-        }
-
-    });
-
-    handler.openIframe();
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    padding:140px 8% 80px;
+    background:#fff;
 
 }
-/* BOOK GRID */
 
-.cards .card img{
+.hero img{
 
+    width:420px;
+    max-width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.hero-text{
+
+    flex:1;
+
+}
+
+.hero-text h1{
+
+    font-size:3.5rem;
+    line-height:1.2;
+    color:#1F5E4A;
+    margin-bottom:25px;
+
+}
+
+.hero-text p{
+
+    font-size:18px;
+    color:#666;
+    margin-bottom:25px;
+
+}
+
+.hero-text h2{
+
+    color:#C9A227;
+    font-size:2.5rem;
+    margin-bottom:30px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+/* ===========================
+   SECTION
+=========================== */
+
+section{
+
+    padding:90px 8%;
+
+}
+
+section h2{
+
+    text-align:center;
+    font-size:2.5rem;
+    color:#1F5E4A;
+    margin-bottom:50px;
+
+}
+/* ==========================================
+   FEATURES & DISCOVER
+========================================== */
+
+.features,
+.discover,
+.testimonials,
+.author{
+    background:#ffffff;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+
+.card img{
     width:100%;
-    height:350px;
+    height:340px;
     object-fit:cover;
     border-radius:15px;
     margin-bottom:20px;
-
 }
 
-.cards .card{
+.card h3{
+    color:#1F5E4A;
+    margin-bottom:15px;
+    font-size:1.4rem;
+}
 
+.card p{
+    color:#666;
+    margin-bottom:20px;
+}
+
+.rating{
+    color:#F4B400;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.badge{
+    display:inline-block;
+    background:#C9A227;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.coming{
+    display:inline-block;
+    background:#777;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.stock{
+    color:green;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.book-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+/* ==========================================
+   QUR'AN VERSE
+========================================== */
+
+.verse{
+    background:#1F5E4A;
+    color:#fff;
     text-align:center;
-
 }
-/* ==========================
-BOOKS PAGE
-========================== */
+
+.verse h2{
+    color:#F4C542;
+}
+
+.arabic{
+    font-size:2rem;
+    line-height:2;
+    max-width:900px;
+    margin:30px auto;
+}
+
+.translation{
+    max-width:850px;
+    margin:auto;
+    font-size:1.15rem;
+    font-style:italic;
+}
+
+.reference{
+    margin-top:25px;
+    color:#F4C542;
+    font-weight:700;
+}
+
+/* ==========================================
+   TESTIMONIALS
+========================================== */
+
+.testimonials .card{
+    text-align:center;
+}
+
+.testimonials h4{
+    color:#1F5E4A;
+    margin-top:20px;
+}
+/* ==========================================
+   AUTHOR SECTION
+========================================== */
+
+.author-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.author-image img{
+    width:380px;
+    max-width:100%;
+    border-radius:20px;
+    border:5px solid #C9A227;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+.author-text{
+    max-width:600px;
+}
+
+.author-text h2{
+    text-align:left;
+    margin-bottom:20px;
+}
+
+.author-text h3{
+    color:#C9A227;
+    margin-bottom:20px;
+}
+
+.author-text p{
+    color:#555;
+    margin-bottom:20px;
+    line-height:1.9;
+}
+
+/* ==========================================
+   CONTACT
+========================================== */
+
+.contact{
+    background:#F8F5EE;
+}
+
+.contact .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.contact .card{
+    background:#fff;
+}
+
+.email-address{
+    display:block;
+    margin:20px 0;
+    word-break:break-word;
+    color:#555;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer{
+    background:#1F5E4A;
+    color:#fff;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.footer h2{
+    color:#F4C542;
+    margin-bottom:20px;
+}
+
+.footer p{
+    margin:12px 0;
+}
+
+.footer hr{
+    width:80%;
+    margin:30px auto;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+/* ==========================================
+   WHATSAPP BUTTON
+========================================== */
+
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    text-decoration:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    transition:.3s;
+    z-index:999;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+/* ==========================================
+   SCROLL ANIMATION
+========================================== */
+
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ==========================================
+   TEXT SELECTION
+========================================== */
+
+::selection{
+    background:#1F5E4A;
+    color:#fff;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eee;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#1F5E4A;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#174838;
+}
+/* ==========================================
+   BOOKS PAGE
+========================================== */
 
 .books-hero{
     text-align:center;
-    padding:80px 20px;
+    padding:140px 20px 80px;
     background:#fff;
 }
 
 .books-hero h1{
     font-size:3rem;
     color:#1F5E4A;
+    margin-bottom:20px;
 }
 
 .books-hero p{
-    max-width:700px;
-    margin:20px auto;
-    color:#555;
+    max-width:750px;
+    margin:auto;
+    color:#666;
+    font-size:18px;
 }
 
 .search-section{
     text-align:center;
-    margin:40px 0;
+    margin:50px 0;
 }
 
 .search-box{
     width:90%;
-    max-width:500px;
-    padding:15px 20px;
+    max-width:550px;
+    padding:18px 25px;
     border:2px solid #ddd;
     border-radius:50px;
-    font-size:16px;
+    font-size:17px;
+    outline:none;
+    transition:.3s;
+}
+
+.search-box:focus{
+    border-color:#1F5E4A;
+    box-shadow:0 0 10px rgba(31,94,74,.15);
 }
 
 .categories{
@@ -149,16 +544,21 @@ BOOKS PAGE
     justify-content:center;
     flex-wrap:wrap;
     gap:15px;
-    margin-bottom:50px;
+    margin-bottom:60px;
 }
 
 .category{
-    padding:12px 25px;
+    padding:12px 28px;
     border:none;
-    border-radius:50px;
+    border-radius:40px;
     background:#eee;
     cursor:pointer;
     font-weight:600;
+    transition:.3s;
+}
+
+.category:hover{
+    background:#ddd;
 }
 
 .category.active{
@@ -166,38 +566,86 @@ BOOKS PAGE
     color:#fff;
 }
 
-.badge,
-.coming{
-    display:inline-block;
-    padding:8px 15px;
-    border-radius:30px;
-    color:#fff;
-    margin-bottom:15px;
-    font-size:13px;
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:900px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+    }
+
+    .navbar nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding-top:170px;
+    }
+
+    .hero-text h1{
+        font-size:2.5rem;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .author-content{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .author-text h2{
+        text-align:center;
+    }
+
 }
 
-.badge{
-    background:#C9A227;
-}
+@media (max-width:600px){
 
-.coming{
-    background:#777;
-}
+    .hero-text h1{
+        font-size:2rem;
+    }
 
-.rating{
-    color:#F4B400;
-    font-weight:bold;
-}
+    .hero-text h2{
+        font-size:2rem;
+    }
 
-.stock{
-    color:green;
-    font-weight:600;
-    margin:15px 0;
-}
+    section h2{
+        font-size:2rem;
+    }
 
-.book-buttons{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
+    .arabic{
+        font-size:1.5rem;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .buy-btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .whatsapp{
+        width:55px;
+        height:55px;
+        font-size:24px;
+    }
+
 }
