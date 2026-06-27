@@ -15,7 +15,7 @@ const observer = new IntersectionObserver((entries) => {
 hiddenElements.forEach((el) => observer.observe(el));
 
 /* ==========================
-   STICKY NAVBAR
+   STICKY NAVBAR SHADOW
 ========================== */
 
 window.addEventListener("scroll", () => {
@@ -31,17 +31,35 @@ window.addEventListener("scroll", () => {
 });
 
 /* ==========================
+   BUTTON HOVER
+========================== */
+
+const buttons = document.querySelectorAll(".primary-btn, .secondary-btn");
+
+buttons.forEach(button => {
+
+    button.addEventListener("mouseenter", () => {
+        button.style.transform = "translateY(-3px)";
+    });
+
+    button.addEventListener("mouseleave", () => {
+        button.style.transform = "translateY(0)";
+    });
+
+});
+
+/* ==========================
    PAYSTACK PAYMENT
 ========================== */
 
 function payWithPaystack() {
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
 
     if (!name || !email || !phone) {
-        alert("Please fill in all your details.");
+        alert("Please fill in all fields.");
         return;
     }
 
@@ -70,13 +88,11 @@ function payWithPaystack() {
                     value: phone
                 }
             ]
-      callback: function(response) {
+        },
 
-    window.location.href = "success.html?reference=" + response.reference;
+        callback: function(response) {
 
-},
-
-            alert("Payment successful!");
+            alert("Payment Successful!");
 
             window.location.href =
                 "success.html?reference=" + response.reference;
@@ -85,7 +101,7 @@ function payWithPaystack() {
 
         onClose: function() {
 
-            alert("Payment cancelled.");
+            alert("Payment Cancelled.");
 
         }
 
