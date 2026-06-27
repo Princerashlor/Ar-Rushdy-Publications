@@ -25,19 +25,21 @@ function closeMenu() {
     document.body.classList.remove("menu-open");
 }
 
-/* Toggle hamburger */
-hamburger.addEventListener("click", () => {
-    if (navMenu.classList.contains("active")) {
-        closeMenu();
-    } else {
-        openMenu();
-    }
-});
+if (hamburger) {
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation(); // 🔥 IMPORTANT FIX
+        if (navMenu.classList.contains("active")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+}
 
-/* Close when clicking overlay */
-overlay.addEventListener("click", closeMenu);
+if (overlay) {
+    overlay.addEventListener("click", closeMenu);
+}
 
-/* Close when clicking links */
 document.querySelectorAll("#navMenu a").forEach(link => {
     link.addEventListener("click", closeMenu);
 });
