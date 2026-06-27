@@ -4,11 +4,7 @@
 ========================================== */
 
 /* ===========================
-   MOBILE MENU
-=========================== */
-
-/* ===========================
-   MOBILE MENU (FIXED)
+   MOBILE MENU (FINAL FIX)
 =========================== */
 
 const hamburger = document.getElementById("hamburger");
@@ -29,6 +25,7 @@ function closeMenu() {
     document.body.classList.remove("menu-open");
 }
 
+/* Toggle hamburger */
 hamburger.addEventListener("click", () => {
     if (navMenu.classList.contains("active")) {
         closeMenu();
@@ -37,12 +34,13 @@ hamburger.addEventListener("click", () => {
     }
 });
 
+/* Close when clicking overlay */
 overlay.addEventListener("click", closeMenu);
 
+/* Close when clicking links */
 document.querySelectorAll("#navMenu a").forEach(link => {
     link.addEventListener("click", closeMenu);
 });
-
 /* ===========================
    SCROLL ANIMATION
 =========================== */
