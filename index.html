@@ -1,45 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ar-Rushdy Publications | Authentic Islamic Books</title>
-
-<meta name="description"
-content="Authentic Islamic books based on the Qur'an and Sunnah.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ar-Rushdy Publications</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Ibadur Rahman Muslim Nexus | Islamic Knowledge Platform</title>
 
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 
 <body>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
 
 <!-- NAVBAR -->
 <header class="navbar">
-
     <div class="logo">Ar-Rushdy</div>
 
     <div class="hamburger" id="hamburger">
@@ -53,62 +32,52 @@ content="Authentic Islamic books based on the Qur'an and Sunnah.">
         <a href="#dua">Dua</a>
         <a href="#dashboard">Dashboard</a>
     </nav>
-
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
-    <div class="hero-content">
-        <h1>Strengthen Your Iman Through Knowledge</h1>
-        <p>Daily Islamic reminders from Qur’an & Sunnah</p>
-        <a href="#hadith" class="btn">Start Now</a>
-    </div>
+    <h1>Strengthen Your Iman Through Knowledge</h1>
+    <p>Daily Qur’an, Hadith & Dua reminders</p>
 </section>
 
 <!-- HADITH -->
-<section class="card-section" id="hadith">
-    <h2>📖 Hadith of the Day</h2>
-    <div class="card">
-        <p id="hadithText">Loading hadith...</p>
-        <button onclick="saveHadith()">Save</button>
-    </div>
+<section class="section" id="hadith">
+    <h2>📚 Hadith of the Day</h2>
+    <div class="card" id="hadithBox">Loading...</div>
 </section>
 
 <!-- QURAN -->
-<section class="card-section" id="quran">
+<section class="section" id="quran">
     <h2>📖 Qur’an Verse</h2>
-    <div class="card">
-        <p id="quranText">إِنَّ مَعَ الْعُسْرِ يُسْرًا</p>
-        <button onclick="saveVerse()">Save</button>
-    </div>
+    <div class="card" id="quranBox">Loading...</div>
 </section>
 
 <!-- DUA -->
-<section class="card-section" id="dua">
+<section class="section" id="dua">
     <h2>🤲 Dua of the Day</h2>
-    <div class="card">
-        <p id="duaText">O Allah, guide us to the straight path</p>
-    </div>
+    <div class="card" id="duaBox">Loading...</div>
 </section>
 
 <!-- DASHBOARD -->
-<section class="dashboard" id="dashboard">
-
+<section class="section" id="dashboard">
     <h2>👤 Your Dashboard</h2>
 
-    <input id="username" placeholder="Enter your name">
-    <button onclick="saveUser()">Save Name</button>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button onclick="saveName()">Save Name</button>
 
-    <p id="welcomeText"></p>
-
+    <p id="welcome"></p>
 </section>
 
-<footer>
-    <p>© 2025 Ar-Rushdy Publications</p>
-</footer>
+<!-- PAYSTACK -->
+<section class="section">
+    <h2>Buy Book</h2>
 
-</body>
-</html>
+    <input id="email" placeholder="Email">
+    <input id="phone" placeholder="Phone">
+
+    <button onclick="payWithPaystack()">Pay ₦5,000</button>
+</section>
+
 <script src="script.js"></script>
 </body>
-
+</html>
