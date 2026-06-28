@@ -1,59 +1,77 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+/* MENU */
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
+const overlay = document.getElementById("overlay");
 
-/* MENU */
-hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+function openMenu(){
+navMenu.classList.add("active");
+overlay.classList.add("active");
+}
+
+function closeMenu(){
+navMenu.classList.remove("active");
+overlay.classList.remove("active");
+}
+
+hamburger.onclick = ()=> navMenu.classList.toggle("active");
+overlay.onclick = closeMenu;
+
+/* DASHBOARD */
+function saveName(){
+let name = document.getElementById("name").value;
+localStorage.setItem("name", name);
+document.getElementById("welcome").innerText =
+"Welcome " + name;
+}
+
+window.onload = ()=>{
+let name = localStorage.getItem("name");
+if(name){
+document.getElementById("welcome").innerText =
+"Welcome back " + name;
+}
+loadHadith();
+loadQuran();
+loadDua();
+};
+
+/* ISLAMIC CONTENT (FIXED STATIC SAFE VERSION) */
+
+function loadHadith(){
+document.getElementById("hadithBox").innerText =
+"“Actions are judged by intentions.” — Bukhari";
+}
+
+function loadQuran(){
+document.getElementById("quranBox").innerText =
+"Indeed with hardship comes ease (94:6)";
+}
+
+function loadDua(){
+document.getElementById("duaBox").innerText =
+"O Allah, guide us to the straight path";
+}
+
+/* PAYSTACK */
+function payWithPaystack(){
+let email = document.getElementById("email").value;
+let phone = document.getElementById("phone").value;
+
+let handler = PaystackPop.setup({
+key:"pk_test_6668c562f7c0a67945b58a9e69afa6408156cb3d",
+email:email,
+amount:500000,
+currency:"NGN",
+ref:"ARR_"+Date.now(),
+
+callback:function(res){
+alert("Payment Successful!");
+},
+
+onClose:function(){
+alert("Payment closed");
+}
 });
 
-/* HADITH SYSTEM */
-const hadiths = [
-    "The best among you are those who learn the Qur’an",
-    "Actions are judged by intentions",
-    "Patience is light"
-];
-
-setInterval(() => {
-    document.getElementById("hadithText").innerText =
-    hadiths[Math.floor(Math.random() * hadiths.length)];
-}, 5000);
-
-/* DUA SYSTEM */
-const duas = [
-    "O Allah guide us",
-    "O Allah forgive us",
-    "O Allah grant us patience"
-];
-
-setInterval(() => {
-    document.getElementById("duaText").innerText =
-    duas[Math.floor(Math.random() * duas.length)];
-}, 6000);
-
-/* SAVE USER */
-function saveUser(){
-    let name = document.getElementById("username").value;
-    localStorage.setItem("user", name);
-    document.getElementById("welcomeText").innerText =
-    "Welcome " + name;
+handler.openIframe();
 }
-
-/* SAVE HADITH */
-function saveHadith(){
-    localStorage.setItem("hadith",
-    document.getElementById("hadithText").innerText);
-}
-
-/* SAVE VERSE */
-function saveVerse(){
-    localStorage.setItem("verse",
-    document.getElementById("quranText").innerText);
-}
-
-window.saveUser = saveUser;
-window.saveHadith = saveHadith;
-window.saveVerse = saveVerse;
-
-});
