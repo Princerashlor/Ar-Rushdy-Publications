@@ -10,28 +10,27 @@
 <body>
 
 <header class="navbar">
+
     <div class="logo">Ar-Rushdy Publications</div>
-    <a href="index.html" class="buy-btn">Home</a>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="about.html">Author</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="checkout.html" class="buy-btn">Buy Now</a>
+    </nav>
+
 </header>
 
-<section class="discover">
-    <h2>📚 Published Books</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>When Allah Tests You</h3>
-            <p>₦5,000</p>
-            <a href="checkout.html" class="primary-btn">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <h3>More Books Coming Soon</h3>
-            <p>Stay connected for updates</p>
-        </div>
-
-    </div>
+<div class="overlay" id="overlay"></div>
 </section>
-
+<script src="script.js"></script>
 </body>
 </html>
