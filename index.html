@@ -21,529 +21,94 @@ content="Authentic Islamic books based on the Qur'an and Sunnah.">
 </head>
 
 <body>
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Overlay -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="overlay" id="overlay"></div>
+<title>Ar-Rushdy Publications</title>
 
-<!-- ===========================
-NAVBAR
-=========================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
 <header class="navbar">
 
-    <div class="logo">
-        Ar-Rushdy Publications
-    </div>
+    <div class="logo">Ar-Rushdy</div>
 
     <div class="hamburger" id="hamburger">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
+        <span></span><span></span><span></span>
     </div>
 
     <nav id="navMenu">
-
-        <a href="index.html">Home</a>
-
-        <a href="books.html">Books</a>
-
-        <a href="about.html">Author</a>
-
-        <a href="#contact">Contact</a>
-
-        <a href="checkout.html" class="buy-btn">
-
-            Buy Now
-
-        </a>
-
+        <a href="#home">Home</a>
+        <a href="#hadith">Hadith</a>
+        <a href="#quran">Qur’an</a>
+        <a href="#dua">Dua</a>
+        <a href="#dashboard">Dashboard</a>
     </nav>
 
 </header>
 
-<!-- ===========================
-HERO
-=========================== -->
-
-<section class="hero">
-
+<!-- HERO -->
+<section class="hero" id="home">
     <div class="hero-content">
-
-        <div class="hero-text">
-
-            <span class="badge">
-
-                ✨ New Islamic Release
-
-            </span>
-
-            <h1>
-
-                When Allah Tests You,<br>
-
-                He Has Not Abandoned You
-
-            </h1>
-
-            <p>
-
-                A powerful reminder from the Noble Qur'an and
-                authentic Sunnah that every hardship carries
-                wisdom, mercy and immense reward.
-
-            </p>
-
-            <h2>
-
-                ₦5,000
-
-            </h2>
-
-            <div class="hero-buttons">
-
-                <a href="checkout.html" class="primary-btn">
-
-                    Buy Now
-
-                </a>
-
-                <a href="#features" class="secondary-btn">
-
-                    Read Preview
-
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="hero-image">
-
-            <img src="Images/book.jpeg"
-                 alt="When Allah Tests You">
-
-        </div>
-
+        <h1>Strengthen Your Iman Through Knowledge</h1>
+        <p>Daily Islamic reminders from Qur’an & Sunnah</p>
+        <a href="#hadith" class="btn">Start Now</a>
     </div>
-
 </section>
-<!-- ===========================
-WHY READ THIS BOOK
-=========================== -->
 
-<section class="features" id="features">
-
-    <h2>Why Read This Book?</h2>
-
-    <div class="cards">
-
-        <div class="card hidden">
-
-            <div class="icon">📖</div>
-
-            <h3>Authentic Guidance</h3>
-
-            <p>
-                Every chapter is based upon the Noble Qur'an
-                and authentic Sunnah, providing reliable
-                Islamic guidance for every Muslim.
-            </p>
-
-        </div>
-
-        <div class="card hidden">
-
-            <div class="icon">🤲</div>
-
-            <h3>Strengthen Your Sabr</h3>
-
-            <p>
-                Discover how patience during hardship
-                increases faith and earns Allah's reward.
-            </p>
-
-        </div>
-
-        <div class="card hidden">
-
-            <div class="icon">❤️</div>
-
-            <h3>Renew Your Hope</h3>
-
-            <p>
-                Be reminded that Allah never abandons
-                His believing servants.
-            </p>
-
-        </div>
-
+<!-- HADITH -->
+<section class="card-section" id="hadith">
+    <h2>📖 Hadith of the Day</h2>
+    <div class="card">
+        <p id="hadithText">Loading hadith...</p>
+        <button onclick="saveHadith()">Save</button>
     </div>
+</section>
+
+<!-- QURAN -->
+<section class="card-section" id="quran">
+    <h2>📖 Qur’an Verse</h2>
+    <div class="card">
+        <p id="quranText">إِنَّ مَعَ الْعُسْرِ يُسْرًا</p>
+        <button onclick="saveVerse()">Save</button>
+    </div>
+</section>
+
+<!-- DUA -->
+<section class="card-section" id="dua">
+    <h2>🤲 Dua of the Day</h2>
+    <div class="card">
+        <p id="duaText">O Allah, guide us to the straight path</p>
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dashboard" id="dashboard">
+
+    <h2>👤 Your Dashboard</h2>
+
+    <input id="username" placeholder="Enter your name">
+    <button onclick="saveUser()">Save Name</button>
+
+    <p id="welcomeText"></p>
 
 </section>
 
-<!-- ===========================
-QUR'AN VERSE
-=========================== -->
-
-<section class="verse">
-
-    <div class="container">
-
-        <h2>Allah's Promise During Trials</h2>
-
-        <p class="arabic">
-
-            وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ
-            وَالْجُوعِ وَنَقْصٍ مِّنَ الْأَمْوَالِ
-            وَالْأَنفُسِ وَالثَّمَرَاتِ ۗ
-            وَبَشِّرِ الصَّابِرِينَ
-
-        </p>
-
-        <p class="translation">
-
-            “And We will surely test you with something of fear,
-            hunger, loss of wealth, lives and fruits,
-            but give glad tidings to the patient.”
-
-        </p>
-
-        <p class="reference">
-
-            Surah Al-Baqarah (2:155)
-
-        </p>
-
-    </div>
-
-</section>
-
-<!-- ===========================
-WHAT YOU'LL DISCOVER
-=========================== -->
-
-<section class="discover">
-
-    <h2>What You'll Discover</h2>
-
-    <div class="cards">
-
-        <div class="card hidden">
-
-            <div class="icon">✨</div>
-
-            <h3>Why Allah Tests His Servants</h3>
-
-            <p>
-
-                Understand the wisdom behind every hardship
-                and how trials elevate the believer.
-
-            </p>
-
-        </div>
-
-        <div class="card hidden">
-
-            <div class="icon">🕌</div>
-
-            <h3>Lessons From the Prophets</h3>
-
-            <p>
-
-                Learn from the patience of Prophet Ayyub,
-                Ya'qub, Yusuf and our beloved Prophet ﷺ.
-
-            </p>
-
-        </div>
-
-        <div class="card hidden">
-
-            <div class="icon">🌙</div>
-
-            <h3>Practical Daily Advice</h3>
-
-            <p>
-
-                Practical reminders to help you remain
-                patient and hopeful every single day.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ===========================
-TESTIMONIALS
-=========================== -->
-
-<section class="testimonials">
-
-    <h2>What Readers Are Saying</h2>
-
-    <div class="cards">
-
-        <div class="card hidden">
-
-            <h3>⭐⭐⭐⭐⭐</h3>
-
-            <p>
-
-                “This book completely changed the way
-                I look at life's tests.
-                It reminded me that Allah's mercy
-                is always present.”
-
-            </p>
-
-            <h4>— Early Reader</h4>
-
-        </div>
-
-        <div class="card hidden">
-
-            <h3>⭐⭐⭐⭐⭐</h3>
-
-            <p>
-
-                “Simple, authentic and beautifully written.
-                Every Muslim should own a copy.”
-
-            </p>
-
-            <h4>— Reader</h4>
-
-        </div>
-
-        <div class="card hidden">
-
-            <h3>⭐⭐⭐⭐⭐</h3>
-
-            <p>
-
-                “One of the most comforting Islamic books
-                I have ever read.”
-
-            </p>
-
-            <h4>— AbdulRahman</h4>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- ===========================
-AUTHOR
-=========================== -->
-
-<section class="author" id="author">
-
-    <div class="author-content">
-
-        <div class="author-image hidden">
-
-            <img src="Images/Author.jpg"
-                 alt="Olowoyo Rasheed A. (Ar-Rushdy)">
-
-        </div>
-
-        <div class="author-text hidden">
-
-            <span class="badge">
-                About the Author
-            </span>
-
-            <h2>Olowoyo Rasheed A. (Ar-Rushdy)</h2>
-
-            <p>
-
-                Olowoyo Rasheed A., popularly known as
-                <strong>Ar-Rushdy</strong>, is an Islamic author,
-                educator and da'wah enthusiast dedicated to
-                spreading authentic Islamic knowledge through
-                beneficial books.
-
-            </p>
-
-            <p>
-
-                His mission is to help Muslims strengthen
-                their faith through the Noble Qur'an,
-                authentic Sunnah and the understanding
-                of the righteous predecessors.
-
-            </p>
-
-            <a href="about.html"
-               class="primary-btn">
-
-                Read Full Biography
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ===========================
-CALL TO ACTION
-=========================== -->
-
-<section class="cta">
-
-    <div class="container">
-
-        <h2>Ready to Strengthen Your Faith?</h2>
-
-        <p>
-
-            Order your copy today and discover timeless
-            reminders that bring hope, patience and trust
-            in Allah during every trial.
-
-        </p>
-
-        <a href="checkout.html"
-           class="primary-btn">
-
-            Buy Now — ₦5,000
-
-        </a>
-
-    </div>
-
-</section>
-
-<!-- ===========================
-CONTACT
-=========================== -->
-
-<section class="contact" id="contact">
-
-    <h2>Contact Us</h2>
-
-    <div class="cards">
-
-        <div class="card hidden">
-
-            <h3>📱 WhatsApp</h3>
-
-            <p>
-
-                +234 806 131 1361
-
-            </p>
-
-            <a href="https://wa.me/2348061311361"
-               target="_blank"
-               class="primary-btn">
-
-                Chat Now
-
-            </a>
-
-        </div>
-
-        <div class="card hidden">
-
-            <h3>📧 Email</h3>
-
-            <p>
-
-                olowoyorasheed1999@gmail.com
-
-            </p>
-
-            <a href="mailto:olowoyorasheed1999@gmail.com"
-               class="secondary-btn">
-
-                Send Email
-
-            </a>
-
-        </div>
-
-        <div class="card hidden">
-
-            <h3>📚 Book Price</h3>
-
-            <h2 style="color:#C9A227;">
-                ₦5,000
-            </h2>
-
-            <a href="checkout.html"
-               class="primary-btn">
-
-                Order Now
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ===========================
-FOOTER
-=========================== -->
-
-<footer class="footer">
-
-    <div class="container">
-
-        <h2>Ar-Rushdy Publications</h2>
-
-        <p>
-
-            Publishing authentic Islamic books based upon
-            the Noble Qur'an and authentic Sunnah.
-
-        </p>
-
-        <hr>
-
-        <p>
-
-            © 2025 Ar-Rushdy Publications.
-            All Rights Reserved.
-
-        </p>
-
-    </div>
-
+<footer>
+    <p>© 2025 Ar-Rushdy Publications</p>
 </footer>
 
-<!-- ===========================
-FLOATING WHATSAPP
-=========================== -->
-
-<a href="https://wa.me/2348061311361"
-   class="whatsapp"
-   target="_blank"
-   aria-label="Chat on WhatsApp">
-
-    💬
-
-</a>
-
-<!-- ===========================
-JAVASCRIPT
-=========================== -->
-
-<script src="https://js.paystack.co/v1/inline.js"></script>
-
+</body>
+</html>
 <script src="script.js"></script>
-
 </body>
 
