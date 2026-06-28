@@ -121,3 +121,52 @@ visibility:hidden;
 opacity:1;
 visibility:visible;
 }
+/* =========================
+   LEVEL 2 ISLAMIC UPGRADE
+========================= */
+
+/* Smooth card animation */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* Better mobile menu fix */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+/* Improve section spacing */
+.section {
+    padding: 80px 20px;
+}
+
+/* Better dashboard inputs */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Buttons better touch on mobile */
+button {
+    padding: 12px 20px;
+    border: none;
+    background: #1F5E4A;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #184838;
+}
